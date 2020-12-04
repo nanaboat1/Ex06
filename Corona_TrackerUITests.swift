@@ -22,7 +22,111 @@ class Corona_TrackerUITests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func testSearchUnitedStates() throws {
+        
+        // Search For United States
+        let app = XCUIApplication()
+        app.launch()
+        XCTAssert(app.buttons["Search"].exists)
+        XCTAssertFalse(app.tables/*@START_MENU_TOKEN@*/.staticTexts["United States"]/*[[".cells.staticTexts[\"United States\"]",".staticTexts[\"United States\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.exists)
+        
+    }
+    
+    func testSearcHNonExistentCountry() throws {
+        
+        // Search for a Non-existent country
+        
+        let app = XCUIApplication()
+        app.launch()
+        XCTAssert(app.buttons["Search"].exists)
+        XCTAssertFalse(app.tables.staticTexts["Trial Tests"].exists)
+        XCTAssert(app.buttons["Layers"].exists)
+        
+        
+    }
+    
+    func testSearchNumbers() throws {
+        
+        // Search for a Non-existent country
+        
+        let app = XCUIApplication()
+        app.launch()
+        XCTAssert(app.buttons["Search"].exists)
+        XCTAssertFalse(app.tables.staticTexts["12345"].exists)
+        XCTAssert(app.buttons["Layers"].exists)
+        
+        
+    }
+    
+    func testCanadaBubble() throws {
+        
+        // Tap Canada's Bubble
+        let app = XCUIApplication()
+        app.launch()
+        XCTAssertFalse(app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.otherElements["Canada"].exists)
+        
+    }
+    
+    func testUnitedStatesBubble() throws {
+        
+        // United States's Bubble
+        let app = XCUIApplication()
+        app.launch()
+        XCTAssertFalse(app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.otherElements["United States"].exists)
+        
+        
+    }
+    
+    func testBrazilBubble() throws {
+        
+        // Tap Canada's Bubble
+        let app = XCUIApplication()
+        app.launch()
+        XCTAssertFalse(app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.otherElements["Brazil"].exists)
+        
+    }
+    
+    func testUnitedKingdomBubble() throws {
+        // Tap United Kingdom's Bubble
+        let app = XCUIApplication()
+        app.launch()
+        XCTAssertFalse(app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.otherElements["United Kingdom"].exists)
+        
+    }
+    
+    func testSpainBubble() throws {
+        // Spain's Bubble
+        let app = XCUIApplication()
+        app.launch()
+        XCTAssertFalse(app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.otherElements["Spain"].exists)
+        
+    }
+    
+    func testIndiaBubble() throws {
+        
+        // Tap Canada's Bubble
+        let app = XCUIApplication()
+        app.launch()
+        XCTAssertFalse(app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.otherElements["India"].exists)
+        
+        }
+    
+    func testGabon() throws {
+        
+        // Tap Canada's Bubble
+        let app = XCUIApplication()
+        app.launch()
+        XCTAssertFalse(app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.otherElements["Gabon"].exists)
+        
+    }
+    
+    
 
+    
+
+    
+    /*
     func testExample() throws {
         
         // UI tests must launch the application that they test.
@@ -87,8 +191,7 @@ class Corona_TrackerUITests: XCTestCase {
         XCTAssertTrue(element.exists)
         XCTAssertTrue(element.exists)
      
-        
-    }
+    } */
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
